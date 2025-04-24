@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jgvsss</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='news.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <!-- Navbar Section-->
+    <div class="top-bar">
+      <div>
+       <div class="cropped">
+          <img src="{{ url_for('static', filename='styel/cropped_image.png') }}" alt="logo">
+       </div><br>
+       <div class="brand-name" style="color:red">JANHIT GRAMIN VIKAS VA SAMAJIK SANSHODHAN SANSTHA</div>
+      </div>
+      <div class="contact-info">
+          <span><i class="fas fa-user"></i> janhitvikaspuntamba@gmail.com</span><br>
+          <span><i class="fas fa-phone"></i> +919767280213</span>
+      </div>  
+    </div>
+<div class="nav-bar">
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('about') }}">About Us</a></li>
+    <li><a href="{{ url_for('contact')}}">Contact Us</a></li>
+    <li><a href="{{ url_for('news')}}">News</a></li>
+    <li><a href="{{url_for('gallery')}}">Gallary</a></li>
+</div>
+
+      <div class="container">
+        <div class="text-content">
+         <h2>
+          NGO Feed
+         </h2>
+         <h1>
+          It's All About NGOs
+         </h1>
+         <p>
+          NGOFeed is India’s largest portal which serves this sector with research, content, data and digital communication. At NGOFeed, we are working on research-based content which directly helps individuals and organizations to grow.
+         </p>
+        </div>
+        <div class="image-content">
+         <img alt="Illustration of research documents, graphs, a tablet, a magnifying glass, a cup of coffee, glasses, and a pen" height="400" src="{{url_for('static', filename='news-img/news-research.jpg')}}" width="600"/>
+        </div>
+       </div>
+
+
+       <div class="news-container">
+        <div class="news-box">
+          <img alt="News" src="{{ url_for('static', filename='news-img/news1.png')}}" />
+          <img alt="News" src="{{ url_for('static', filename='news-img/news2.png')}}" />
+          <img alt="News" src="{{ url_for('static', filename='news-img/news3.png')}}" />
+        </div>
+        <div class="news-box">
+          <img alt="News" src="{{ url_for('static', filename='news-img/news4.png')}}" />
+          <img alt="News" src="{{ url_for('static', filename='news-img/news5.png')}}" />
+          <img alt="News" src="{{ url_for('static', filename='news-img/news6.png')}}" />
+        </div>
+        <div class="news-box">
+          <img alt="News" src="{{ url_for('static', filename='news-img/news7.png')}}" />
+          <img alt="News" src="{{ url_for('static', filename='news-img/news8.png')}}" />
+          <img alt="News" src="{{ url_for('static', filename='news-img/news9.png')}}" />
+        </div>
+      </div>
+
+      <div class="dynamic-news-section">
+        <h2>Latest NGO News</h2>
+    
+        <div class="dynamic-news-grid">
+            {% for item in news %}
+            <div class="news-item">
+                <h3>{{ item[1] }}</h3>
+                <p>{{ item[2] }}</p>
+                {% if item[3] %}
+                <img src="{{ url_for('static', filename='uploads/' ~ item[3]) }}" />
+                {% endif %}
+    
+                {% if session.get('email') == 'admin@gmail.com' %}
+                <form action="{{ url_for('delete_news', news_id=item[0]) }}" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+      
+    {% if session.get('email') == 'admin@gmail.com' %}
+    <div class="add-news-form" style="margin: 30px; border-top: 2px solid #333; padding-top: 20px;">
+        <h2>Add News</h2>
+        <form action="{{ url_for('add_news') }}" method="POST" enctype="multipart/form-data">
+            <input type="text" name="title" placeholder="Title" required><br><br>
+            <textarea name="content" placeholder="Content" rows="4" required></textarea><br><br>
+            <input type="file" name="image"><br><br>
+            <button type="submit">Post News</button>
+        </form>
+    </div>
+    {% endif %}    
+
+       <!-- Footer Section -->
+
+       <footer>
+        <div class="foot-panel1 " id="back-to-top">
+            Back to Top
+        </div>
+        <script>
+          document.getElementById('back-to-top').addEventListener('click', function() {
+    window.scrollTo(0, 0);
+  });
+        </script>
+
+       <div class="foot-panel2">
+   <div class="left-section">
+    <img alt="Organization Logo"  src="{{url_for('static', filename='styel/cropped-janhit2-10.png')}}" height="150" width="300"/>
+    <br>
+    <div class="contact-info">
+     <p>
+      <i class="fas fa-home">
+      </i>
+      A/p: Puntamba Tal: Rahata Dist: Ahmednagar PIN-413707
+     </p><br>
+     <p>
+      <i class="fas fa-phone">
+      </i>
+      +919767280213
+     </p><br>
+     <p>
+      <i class="fas fa-clock">
+      </i>
+      Working Hours: Mon-Fri (9 am - 8 pm)
+     </p>
+    </div>
+   </div>
+   <div class="right-section">
+    <h2>
+     ABOUT
+    </h2>
+    <p>
+     Our organization is working on for women and backward class by providing vocational training to hundreds of individuals in rural areas. In rural area agriculture and dairy farming are the main occupation. We are encouraging the farmers by training them about organic farming and conducting soil test. We also conduct camps and seminars for senior citizen. We surveyed villages and found that tribal communities problems and started working for them. We believe in literacy and have started library.
+    </p>
+    <div class="social-icons">
+     <i class="fab fa-facebook-f" a href="">
+     </i>
+     <i class="fab fa-twitter">
+     </i>
+     <i class="fab fa-linkedin-in">
+     </i>
+     <i class="fab fa-instagram">
+     </i>
+     <i class="fas fa-rss">
+     </i>
+    </div>
+   </div>
+  </div>
+
+        <div class="foot-panel3">
+            <div class="logo"></div>
+        </div>
+
+        <div class="foot-panel4">
+            <div class="pages">
+                NGO
+            </div>
+
+            <div class="copyrigth">
+              2022 © All Rights Reserved by jgvsss
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

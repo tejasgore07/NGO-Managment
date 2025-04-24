@@ -1,0 +1,197 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='gallery.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <!-- Navbar Section-->
+    <div class="top-bar">
+        <div>
+         <div class="cropped">
+            <img src="{{ url_for('static', filename='styel/cropped_image.png') }}" alt="logo">
+         </div><br>
+         <div class="brand-name" style="color:red">JANHIT GRAMIN VIKAS VA SAMAJIK SANSHODHAN SANSTHA</div>
+        </div>
+        <div class="contact-info">
+            <span><i class="fas fa-user"></i> janhitvikaspuntamba@gmail.com</span><br>
+            <span><i class="fas fa-phone"></i> +919767280213</span>
+        </div>  
+      </div>
+<div class="nav-bar">
+    <li><a href="{{url_for('home')}}">Home</a></li>
+    <li><a href="{{url_for('about')}}">About Us</a></li>
+    <li><a href="{{url_for('contact')}}">Contact Us</a></li>
+    <li><a href="{{url_for('news')}}">News</a></li>
+    <li><a href="{{url_for('gallery')}}">Gallery</a></li>
+</div>
+
+<div class="gallery-img">
+    <div class="column">
+        <img src="{{url_for('static',filename='gallery-img/1.pnj.jpg')}}" alt="Image 1" onclick="openModal();currentSlide(1)">
+        <img src="{{url_for('static',filename='gallery-img/2.pnj.jpeg')}}" alt="Image 2" onclick="openModal();currentSlide(2)">
+        <img src="{{url_for('static',filename='gallery-img/3.png')}}" alt="Image 3" onclick="openModal();currentSlide(3)">
+        <img src="{{url_for('static',filename='gallery-img/4.pnj.jpg')}}" alt="Image 4" onclick="openModal();currentSlide(4)">
+        <img src="{{url_for('static',filename='gallery-img/5.pnj.jpg')}}" alt="Image 5" onclick="openModal();currentSlide(5)">
+        <img src="{{url_for('static',filename='gallery-img/6.pnj.jpg')}}" alt="Image 6" onclick="openModal();currentSlide(6)">
+    </div>
+    <div class="column">
+        <img src="{{url_for('static',filename='gallery-img/7.pnj.jpg')}}" alt="Image 7" onclick="openModal();currentSlide(7)">
+        <img src="{{url_for('static',filename='gallery-img/8.pnj.jpg')}}" alt="Image 8" onclick="openModal();currentSlide(8)">
+        <img src="{{url_for('static',filename='gallery-img/9.pnj.jpg')}}" alt="Image 9" onclick="openModal();currentSlide(9)">
+        <img src="{{url_for('static',filename='gallery-img/10.pnj.jpg')}}" alt="Image 10" onclick="openModal();currentSlide(10)">
+        <img src="{{url_for('static',filename='gallery-img/11.pnj.jpg')}}" alt="Image 11" onclick="openModal();currentSlide(11)">
+        <img src="{{url_for('static',filename='gallery-img/12.pnj.jpg')}}" alt="Image 12" onclick="openModal();currentSlide(12)">
+    </div>
+    <div class="column">
+        <img src="{{url_for('static',filename='gallery-img/13.pnj.jpg')}}" alt="Image 13" onclick="openModal();currentSlide(13)">
+        <img src="{{url_for('static',filename='gallery-img/14.pnj.jpeg')}}" alt="Image 14" onclick="openModal();currentSlide(14)">
+        <img src="{{url_for('static',filename='gallery-img/15.pnj.jpeg')}}" alt="Image 15" onclick="openModal();currentSlide(15)">
+        <img src="{{url_for('static',filename='gallery-img/16.pnj.jpg')}}" alt="Image 16" onclick="openModal();currentSlide(16)">
+        <img src="{{url_for('static',filename='gallery-img/17.pnj.jpeg')}}" alt="Image 17" onclick="openModal();currentSlide(17)">
+        <img src="{{url_for('static',filename='gallery-img/18.png')}}" alt="Image 18" onclick="openModal();currentSlide(18)">
+    </div>
+    <div class="column">
+        <img src="{{url_for('static',filename='gallery-img/19.png')}}" alt="Image 19" onclick="openModal();currentSlide(19)">
+        <img src="{{url_for('static',filename='gallery-img/20.png')}}" alt="Image 20" onclick="openModal();currentSlide(20)">
+        <img src="{{url_for('static',filename='gallery-img/21.png')}}" alt="Image 21" onclick="openModal();currentSlide(21)">
+        <img src="{{url_for('static',filename='gallery-img/22.png')}}" alt="Image 22" onclick="openModal();currentSlide(22)">
+        <img src="{{url_for('static',filename='gallery-img/23.png')}}" alt="Image 23" onclick="openModal();currentSlide(23)">
+        <img src="{{url_for('static',filename='gallery-img/24.png')}}" alt="Image 24" onclick="openModal();currentSlide(24)">
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <img class="modal-content" id="img01">
+    </div>
+</div>
+    <script>
+        var slideIndex = 1;
+        var images = document.querySelectorAll('.column img');
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+
+        function openModal() {
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            if (n > images.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = images.length }
+            modalImg.src = images[slideIndex - 1].src;
+        }
+    </script>
+
+<div class="gallery-grid">
+    {% for image in images %}
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='gallery-img/' + image[1]) }}" alt="Gallery Image">
+
+            {% if session.get('email') == 'admin@gmail.com' %}
+            <form action="{{ url_for('delete_image', image_id=image[0]) }}" method="POST" style="margin-top: 10px;">
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+{% if session.get('email') == 'admin@gmail.com' %}
+<div class="add-gallery-form" style="margin: 30px; border-top: 2px solid #333; padding-top: 20px;">
+    <h2>Add Gallery Image</h2>
+    <form action="{{ url_for('add_gallery_image') }}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required><br><br>
+        <button type="submit">Upload Image</button>
+    </form>
+</div>
+{% endif %}
+
+
+
+     <!-- Footer Section -->
+
+     <footer>
+        <div class="foot-panel1 " id="back-to-top">
+            Back to Top
+        </div>
+        <script>
+          document.getElementById('back-to-top').addEventListener('click', function() {
+    window.scrollTo(0, 0);
+  });
+        </script>
+
+       <div class="foot-panel2">
+   <div class="left-section">
+    <img alt="Organization Logo"  src="{{url_for('static', filename='styel/cropped-janhit2-10.png')}}" height="150" width="300"/>
+    <br>
+    <div class="contact-info">
+     <p>
+      <i class="fas fa-home">
+      </i>
+      A/p: Puntamba Tal: Rahata Dist: Ahmednagar PIN-413707
+     </p><br>
+     <p>
+      <i class="fas fa-phone">
+      </i>
+      +919767280213
+     </p><br>
+     <p>
+      <i class="fas fa-clock">
+      </i>
+      Working Hours: Mon-Fri (9 am - 8 pm)
+     </p>
+    </div>
+   </div>
+   <div class="right-section">
+    <h2>
+     ABOUT
+    </h2>
+    <p>
+     Our organization is working on for women and backward class by providing vocational training to hundreds of individuals in rural areas. In rural area agriculture and dairy farming are the main occupation. We are encouraging the farmers by training them about organic farming and conducting soil test. We also conduct camps and seminars for senior citizen. We surveyed villages and found that tribal communities problems and started working for them. We believe in literacy and have started library.
+    </p>
+    <div class="social-icons">
+     <i class="fab fa-facebook-f" a href="">
+     </i>
+     <i class="fab fa-twitter">
+     </i>
+     <i class="fab fa-linkedin-in">
+     </i>
+     <i class="fab fa-instagram">
+     </i>
+     <i class="fas fa-rss">
+     </i>
+    </div>
+   </div>
+  </div>
+
+        <div class="foot-panel3">
+            <div class="logo"></div>
+        </div>
+
+        <div class="foot-panel4">
+            <div class="pages">
+                NGO
+            </div>
+
+            <div class="copyrigth">
+              2022 © All Rights Reserved by jgvsss
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

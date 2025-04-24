@@ -1,0 +1,140 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+     <!-- Navbar Section-->
+     <div class="top-bar">
+        <div>
+         <div class="cropped">
+            <img src="{{ url_for('static', filename='styel/cropped_image.png') }}" alt="logo">
+         </div><br>
+         <div class="brand-name" style="color:red">JANHIT GRAMIN VIKAS VA SAMAJIK SANSHODHAN SANSTHA</div>
+        </div>
+        <div class="contact-info">
+            <span><i class="fas fa-user"></i> janhitvikaspuntamba@gmail.com</span><br>
+            <span><i class="fas fa-phone"></i> +919767280213</span>
+        </div>  
+      </div>
+<div class="nav-bar">
+    <li><a href="{{url_for('home')}}">Home</a></li>
+    <li><a href="{{url_for('about')}}">About Us</a></li>
+    <li><a href="{{ url_for('contact')}}">Contact Us</a></li>
+    <li><a href="{{url_for('news')}}">News</a></li>
+    <li><a href="{{url_for('gallery')}}">Gallary</a></li>
+</div>
+
+<!-- ContactUs Section code -->
+ 
+    <div class="container">
+        <h1>Get In Touch</h1>
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="bc5fad2a-b752-446d-9602-e08eb167b9f8">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="tel" id="phone" placeholder="Phone" required>
+            <input type="text" id="address" placeholder="Address" style="width: calc(100% - 22px);" required>
+            <textarea id="message" placeholder="Type your message here"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="message" id="thankYouMessage">Thanks for submitting!</div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event)
+         {
+            event.preventDefault();
+            
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var address = document.getElementById('address').value;
+
+            if (firstName && lastName && email && phone && address)
+             {
+                if (!isNaN(phone)) {
+                    document.getElementById('thankYouMessage').style.display = 'block';
+                } else {
+                    alert('Please enter a valid phone number.');
+                }
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    </script>
+    <br>
+    <footer>
+     
+        <div class="foot-panel1 " id="back-to-top">
+            Back to Top
+        </div>
+        <script>
+          document.getElementById('back-to-top').addEventListener('click', function() {
+    window.scrollTo(0, 0);
+  });
+        </script>
+
+       <div class="foot-panel2">
+   <div class="left-section">
+    <img alt="Organization Logo" height="150" src="{{ url_for('static', filename='styel/cropped-janhit2-10.png') }}" width="300"/>
+    <br>
+    <div class="contact-info">
+     <p>
+      <i class="fas fa-home">
+      </i>
+      A/p: Puntamba Tal: Rahata Dist: Ahmednagar PIN-413707
+     </p><br>
+     <p>
+      <i class="fas fa-phone">
+      </i>
+      +919767280213
+     </p><br>
+     <p>
+      <i class="fas fa-clock">
+      </i>
+      Working Hours: Mon-Fri (9 am - 8 pm)
+     </p>
+    </div>
+   </div>
+   <div class="right-section">
+    <h2>
+     ABOUT
+    </h2>
+    <p>
+     Our organization is working on for women and backward class by providing vocational training to hundreds of individuals in rural areas. In rural area agriculture and dairy farming are the main occupation. We are encouraging the farmers by training them about organic farming and conducting soil test. We also conduct camps and seminars for senior citizen. We surveyed villages and found that tribal communities problems and started working for them. We believe in literacy and have started library.
+    </p>
+    <div class="social-icons">
+     <i class="fab fa-facebook-f">
+     </i>
+     <i class="fab fa-twitter">
+     </i>
+     <i class="fab fa-linkedin-in">
+     </i>
+     <i class="fab fa-instagram">
+     </i>
+     <i class="fas fa-rss">
+     </i>
+    </div>
+   </div>
+  </div>
+
+        <div class="foot-panel3">
+            <div class="logo"></div>
+        </div>
+
+        <div class="foot-panel4">
+            <div class="pages">
+                NGO
+            </div>
+
+            <div class="copyrigth">
+              2022 © All Rights Reserved by jgvsss
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

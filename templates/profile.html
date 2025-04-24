@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <style>
+        .password-form {
+            display: none;
+            margin-top: 20px;
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+    <div class="profile-container">
+        <h2>Welcome, {{ username }}</h2>
+        <p>This is your profile page.</p>
+
+        <button onclick="togglePasswordForm()">Change Password</button>
+
+        <div class="password-form" id="passwordForm">
+            <form method="POST" action="{{ url_for('change_password') }}">
+                <input type="password" name="old_password" placeholder="Old Password" required>
+                <input type="password" id="password" name="new_password" placeholder="New Password" required>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm New Password" required>
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+        <script>
+            function validatePasswords() {
+              const pw1 = document.getElementById('password').value;
+              const pw2 = document.getElementById('confirm_password').value;
+          
+              if (pw1 !== pw2) {
+                alert("Recheck password. New Passwords do not match!");
+                return false; 
+              }
+              return true; 
+            }
+          </script>
+
+        <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+    </div>
+
+    <script>
+        function togglePasswordForm() {
+            var form = document.getElementById("passwordForm");
+            form.style.display = (form.style.display === "none" || form.style.display === "") ? "block" : "none";
+        }
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styel/signup.css') }}" />
+</head>
+<body>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+  <div class="signup-container">
+    <form action="/signup" method="POST" class="signup-form" onsubmit="return validatePasswords();">
+      <h2>Create Account</h2>
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" id="password" name="password" placeholder="Password" required />
+      <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required />
+      <script>
+        function validatePasswords() {
+          const pw1 = document.getElementById('password').value;
+          const pw2 = document.getElementById('confirm_password').value;
+      
+          if (pw1 !== pw2) {
+            alert("Recheck password. Passwords do not match!");
+            return false; 
+          }
+          return true; 
+        }
+      </script>
+      <button type="submit">Sign Up</button>
+      <p class="login-link">
+        Already have an account? 
+        <a href="{{ url_for('login') }}">Log In</a>
+      </p>
+    </form>
+    
+  </div>
+</body>
+</html>

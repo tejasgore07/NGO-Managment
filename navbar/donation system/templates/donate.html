@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Form</title>
+
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007bff;
+            margin: 0;
+            padding: 0;
+            background: url("{{ url_for('static', filename='bgimage.jpg')}}") no-repeat center center fixed; /* Replace with your background image */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Form container */
+        .form-container {
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent background for the form */
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Input fields */
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 6px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Image above form */
+        .form-image img {
+            margin-top: 400px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        /* Flash messages */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 15px 0;
+        }
+
+        ul li {
+            background: #ffeb3b;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ffd600;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 15px 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+    </head>
+<body>
+
+  
+    <header>
+        <h1 style="color: #0056b3;">Support Our Cause</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="projects.html">Our Projects</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="form-container">
+
+     <div class="form-image">
+        <img src="{{ url_for('static', filename='donation.jpeg') }}" alt="Form Header Image"> <!-- Replace with your form image -->
+     </div>
+     <h1>Donate Information</h1>
+    
+     <form id="donorForm"  action="/add_donor" method="POST">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required><br><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required><br><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="text" id="mobile" name="mobile" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="amount">Amount Donated:</label>
+        <input type="number" id="amount" name="amount" required><br><br>
+
+        <label for="transaction_id">Transaction ID:</label>
+        <input type="text" id="transaction_id" name="transaction_id" required><br><br>
+
+        <input type="submit" value="Submit">
+       <button>
+        <a href="C:\Users\Admin\OneDrive\Documents\Final Project Main\index.html"> back to home</a>   
+       </button>
+     </form>
+     <!-- Display flashed messages -->
+     {% with messages = get_flashed_messages() %}
+     {% if messages %}
+       <ul>
+         {% for message in messages %}
+           <li>{{ message }}</li>
+         {% endfor %}
+       </ul>
+      {% endif %}
+     {% endwith %}
+    </div>
+ </div>
+</body>
+</html>

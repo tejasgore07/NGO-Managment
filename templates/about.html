@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <!-- Navbar Section-->
+    <div class="top-bar">
+      <div>
+       <div class="cropped">
+          <img src="{{ url_for('static', filename='styel/cropped_image.png') }}" alt="logo">
+       </div><br>
+       <div class="brand-name" style="color:red">JANHIT GRAMIN VIKAS VA SAMAJIK SANSHODHAN SANSTHA</div>
+      </div>
+      <div class="contact-info">
+          <span><i class="fas fa-user"></i> janhitvikaspuntamba@gmail.com</span><br>
+          <span><i class="fas fa-phone"></i> +919767280213</span>
+      </div>  
+    </div>
+<div class="nav-bar">
+    <li><a href="{{ url_for('home')}}">Home</a></li>
+    <li><a href="{{ url_for('about')}}">About Us</a></li>
+    <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+    <li><a href="{{url_for('news')}}">News</a></li>
+    <li><a href="{{url_for('gallery')}}">Gallary</a></li>
+</div>
+         
+    <fieldset><legend><h2>About Us</h2></legend>     
+        <table>
+          <tr>
+            <th>Registered With</th>
+            <td>Charity Commissioner</td>
+          </tr>
+          <tr>
+            <th>Type of NGO</th>
+            <td>Other Registered Entities (Non-Government)</td>
+          </tr>
+          <tr>
+            <th>Registration No</th>
+            <td>MAHA/695/2011/Ahmednagar</td>
+          </tr>
+          <tr>
+            <th>Copy of Registration Certificate</th>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <th>Copy of Pan Card</th>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <th>Act name</th>
+            <td>1860 Act 21 and 1950 Mumbai Act 29</td>
+          </tr>
+          <tr>
+            <th>City of Registration</th>
+            <td>Puntamba</td>
+          </tr>
+          <tr>
+            <th>State of Registration</th>
+            <td>MAHARASHTRA</td>
+          </tr>
+          <tr>
+            <th>Date of Registration</th>
+            <td>26-09-2011</td>
+          </tr>
+        </table>
+        <!DOCTYPE html>
+<title>Janhit Gramin Vikas Va Samajik Sanshodhan Sanstha NGO</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='about.css')}}">
+</head>
+<body>
+  <h1>JANHIT GRAMIN VIKAS VA SAMAJIK SANSHODHAN SANSTHA NGO</h1>
+  <h2>Organization Members</h2>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Designation</th>
+      <th>Pan</th>
+      <th>Aadhaar</th>
+    </tr>
+    <tr>
+      <td>Sunita Vishal Shelar</td>
+      <td>Member</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>Keshavrao Bhikaji Borde</td>
+      <td>Vice President</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>Santoshkumar Punamchand Chordiya</td>
+      <td>Treasurer</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>SANJAY BHIKAJI JOGDAND</td>
+      <td>President</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>RAJENDRA CHANGDEO THORAT</td>
+      <td>Secretary</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>Gopinath Kashinath Bhand</td>
+      <td>Joint Secretary</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>Subhash Revaji Pawar</td>
+      <td>Member</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>Nandkumar Ramnath Dhanwate</td>
+      <td>Member</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>Kiran Ambadas Jogdand</td>
+      <td>Member</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>Rajendra Somanath Kurhade</td>
+      <td>Member</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>Balasaheb Sakharam Ghatkar</td>
+      <td>Member</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+  </table>
+</fieldset>
+
+<!-- Team Meamber-->
+
+<div class="container">
+  <div class="leadership">
+      <h1>LEADERSHIP</h1>
+  </div>
+  <div class="header">
+      <h1>Meet The Team</h1>
+  </div>
+
+  <div class="slider">
+    <div class="slide">
+      <img src="{{ url_for('static', filename='team-meamber-img/SANJAY-BHIKA-JOGDAND-240x300-1.jpg') }}" alt="Sanjay Jogdand">
+      <div class="name">Sanjay Jogdand</div>
+  </div>
+      <div class="slide">
+          <img src="{{ url_for('static', filename='team-meamber-img/Sunita-Shelar-scaled-1.jpg') }}" alt="Sunita Shelar">
+          <div class="name">Sunita Shelar</div>
+      </div>
+      <div class="slide">
+          <img src="{{ url_for('static', filename='team-meamber-img/Rajendra-Kurhade-390x500-1.jpg') }}" alt="Rajendra Kurhade">
+          <div class="name">Rajendra Kurhade</div>
+      </div>
+      <div class="slide">
+          <img src="{{ url_for('static', filename='team-meamber-img/Photo-of-Secreatory-225x300-1.jpg') }}" alt="Secretary">
+          <div class="name">Secretary</div>
+      </div>
+    <div class="slide">
+      <img src="{{ url_for('static',filename='team-meamber-img/crop-0-0-1137-1280-0-Jitendra-Maid-910x1024-1.jpg') }}" alt="Jitendra Maid">
+      <div class="name">Jitendra Maid</div>
+  </div>
+  <div class="slide">
+    <img src="{{ url_for('static', filename='team-meamber-img/crop-0-0-720-721-0-Subhash-Pawar-Member-300x300-1.jpeg') }}" alt="Subhash Pawar">
+    <div class="name"> Subhash Pawar<br>Member</div>
+</div>
+<div class="slide">
+  <img src="{{ url_for('static', filename='team-meamber-img/Bapurao-Jogdand-770x1024-1.jpeg') }}" alt="Bapurao Jogdand">
+  <div class="name"> Bapurao Jogdand</div>
+</div>
+<div class="slide">
+  <img src="{{ url_for('static', filename='team-meamber-img/Balasaheb-Ghatkar-390x500-1.jpg') }}" alt="Balasaheb-Ghatkar">
+  <div class="name">Balasaheb Ghatkar </div>
+</div>
+<div class="slide">
+  <img src="{{ url_for('static', filename='team-meamber-img/305-229x300-1.jpg') }}" alt="Santoshkumar  Chordiya">
+  <div class="name">Santoshkumar Chordiya </div>
+</div>
+  
+</div>
+
+  <div class="navigation">
+      <button class="prev" onclick="prevSlide()"><</button>
+      <div class="dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+      </div>
+      <button class="next" onclick="nextSlide()">></button>
+  </div>
+</div>
+
+<script>
+  let currentSlide = 0;
+
+       function showSlide(index) {
+           const slides = document.querySelectorAll('.slide');
+           const totalSlides = slides.length;
+           const carouselInner = document.querySelector('.slider');
+           if (index >= totalSlides) {
+               currentSlide = 0;
+           } else if (index < 0) {
+               currentSlide = totalSlides - 1;
+           } else {
+               currentSlide = index;
+           }
+           const offset = -currentSlide * 100 / totalSlides;
+           carouselInner.style.transform = `translateX(${offset}%)`;
+           updateIndicators();
+       }
+
+       function nextSlide() {
+           showSlide(currentSlide + 1);
+       }
+
+       function prevSlide() {
+           showSlide(currentSlide - 1);
+       }
+
+       function goToSlide(index) {
+           showSlide(index);
+       }
+
+       function updateIndicators() {
+           const indicators = document.querySelectorAll('.carousel-indicators div');
+           indicators.forEach((indicator, index) => {
+               if (index === currentSlide) {
+                   indicator.classList.add('active');
+               } else {
+                   indicator.classList.remove('active');
+               }
+           });
+       }
+
+       showSlide(currentSlide);
+ </script>
+
+
+
+<!-- Footer Section -->
+<footer>
+  <div class="foot-panel1 " id="back-to-top">
+    Back to Top
+</div>
+<script>
+  document.getElementById('back-to-top').addEventListener('click', function() {
+window.scrollTo(0, 0);
+});
+</script>
+
+ <div class="foot-panel2">
+<div class="left-section">
+<img alt="Organization Logo" height="150" src="{{ url_for('static', filename='styel/cropped-janhit2-10.png')}}" width="300"/>
+<br>
+<div class="contact-info">
+<p>
+<i class="fas fa-home">
+</i>
+A/p: Puntamba Tal: Rahata Dist: Ahmednagar PIN-413707
+</p><br>
+<p>
+<i class="fas fa-phone">
+</i>
++919767280213
+</p><br>
+<p>
+<i class="fas fa-clock">
+</i>
+Working Hours: Mon-Fri (9 am - 8 pm)
+</p>
+</div>
+</div>
+<div class="right-section">
+<h2>
+ABOUT
+</h2>
+<p>
+Our organization is working on for women and backward class by providing vocational training to hundreds of individuals in rural areas. In rural area agriculture and dairy farming are the main occupation. We are encouraging the farmers by training them about organic farming and conducting soil test. We also conduct camps and seminars for senior citizen. We surveyed villages and found that tribal communities problems and started working for them. We believe in literacy and have started library.
+</p>
+<div class="social-icons">
+<i class="fab fa-facebook-f">
+</i>
+<i class="fab fa-twitter">
+</i>
+<i class="fab fa-linkedin-in">
+</i>
+<i class="fab fa-instagram">
+</i>
+<i class="fas fa-rss">
+</i>
+</div>
+</div>
+</div>
+
+  <div class="foot-panel3">
+      <div class="logo"></div>
+  </div>
+
+  <div class="foot-panel4">
+      <div class="pages">
+          NGO
+      </div>
+
+      <div class="copyrigth">
+        2022 © All Rights Reserved by jgvsss
+      </div>
+  </div>
+</footer>
+</body>
+</html>

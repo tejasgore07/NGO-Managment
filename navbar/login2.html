@@ -1,0 +1,110 @@
+<html></html>
+<head>
+    <title>OTP Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff;
+        }
+        .container {
+            text-align: center;
+            border-radius: 5px;
+            
+        }
+        .container img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .container p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .container p a {
+            color: blue;
+            text-decoration: none;
+        }
+        .otp-inputs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .otp-inputs input {
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        .resend {
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 20px;
+        }
+        .verify-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img alt="Illustration of a mobile phone with a lock and OTP symbols" height="150" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-5XzJm9DLarIS3es6YxYzRMdO.png?st=2024-09-12T13%3A28%3A38Z&amp;se=2024-09-12T15%3A28%3A38Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-12T03%3A16%3A44Z&amp;ske=2024-09-13T03%3A16%3A44Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=COqaBUAIQheKfokpQExKlST7DPKynOB7cFnm3IXYcxY%3D" width="150"/>
+        <h2>OTP verification</h2>
+        <p>Enter the OTP sent to +91 86690 14136 <a href="#"></a></p>
+        <div class="otp-inputs">
+            <input maxlength="1" type="text"/>
+            <input maxlength="1" type="text"/>
+            <input maxlength="1" type="text"/>
+            <input maxlength="1" type="text"/>
+            <input maxlength="1" type="text"/>
+            <input maxlength="1" type="text"/>
+        </div>
+        <div class="resend" id="resend">
+            Resend in (30)s
+        </div>
+        <button class="verify-button">Verify</button>
+    </div>
+    <script>
+        let countdown = 30;
+        const resendElement = document.getElementById('resend');
+        const interval = setInterval(() => {
+            countdown--;
+            resendElement.textContent = `Resend in (${countdown})s`;
+            if (countdown === 0) {
+                clearInterval(interval);
+                resendElement.innerHTML = '<a href="#" onclick="resendOTP()">Resend OTP</a>';
+            }
+        }, 1000);
+
+        function resendOTP() {
+            alert('OTP has been resent!');
+            countdown = 30;
+            resendElement.textContent = `Resend in (${countdown})s`;
+            const newInterval = setInterval(() => {
+                countdown--;
+                resendElement.textContent = `Resend in (${countdown})s`;
+                if (countdown === 0) {
+                    clearInterval(newInterval);
+                    resendElement.innerHTML = '<a href="#" onclick="resendOTP()">Resend OTP</a>';
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jgvsss - Janhit Gramin Vikas va Samajik Sanshodhan Sanstha.
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styel/style2.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <!-- Navbar Section-->
+  <div class="top-bar">
+    <div>
+     <div class="cropped">
+        <img src="{{ url_for('static', filename='styel/cropped_image.png') }}" alt="logo">
+     </div><br>
+     <div class="brand-name" style="color:red">JANHIT GRAMIN VIKAS VA SAMAJIK SANSHODHAN SANSTHA</div>
+    </div>
+    <div class="contact-info">
+        <span><i class="fas fa-user"></i> janhitvikaspuntamba@gmail.com</span><br>
+        <span><i class="fas fa-phone"></i> +919767280213</span>
+        {% if 'logged_in' in session and session['logged_in'] %}
+        <a href="{{ url_for('profile') }}" class="login-button">Profile</a>
+    {% else %}
+        <a href="{{ url_for('login') }}" class="login-button">Log In</a>
+    {% endif %}
+    </div>  
+  </div>
+<div class="nav-bar">
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('about') }}">About Us</a></li>
+    <li><a href="{{ url_for('contact')}}">Contact Us</a></li>
+    <li><a href="{{ url_for('news')}}">News</a></li>
+    <li><a href="{{url_for('gallery')}}">Gallary</a></li>
+    <li><a href="{{ url_for('donate')}}">Donate</a></li>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                {% if message == "Login successful!" %}  <!-- ✅ फक्त हाच message दाखवायचा -->
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<script>
+  setTimeout(() => {
+      let alerts = document.querySelectorAll('.alert');
+      alerts.forEach(alert => {
+          alert.classList.add('fade-out');  // CSS fade-out अॅड करतो
+          setTimeout(() => alert.style.display = 'none', 1000); // 1 सेकंदात गायब करतो
+      });
+  }, 3000); // 3 सेकंदांनी चालू होईल
+</script>
+
+           <!-- Hero Section Image -->
+           <section class="main swiper mySwiper">
+            <div class="wrapper swiper-wrapper">
+              <div class="slide swiper-slide">
+                <img src="{{ url_for('static', filename='hero images/hero.png.png') }}" alt="" class="image" />
+                
+                <!--<div class="image-data">
+                  <span class="text">Enjoy the finest coffee drinks.</span>
+                  <h2>
+                    Enjoy Our Exclusive <br />
+                    Coffee and Cocktails
+                  </h2>
+                  <a href="#" class="button">About Us</a>
+                </div>-->
+              </div>
+             <!-- <div class="slide swiper-slide">
+                <img src="hero images/img1.png" alt="" class="image" />
+                <div class="image-data">
+                  <span class="text">We really like what we do.</span>
+                  <h2>
+                    We are Non Profit Organization <br />
+                    Janhit Gramin Vikas va Samajik Sanshodhan Sanstha
+                  </h2>
+                  <a href="/navbar/about.html" class="button">About Us</a>
+                </div>
+              </div>
+              <div class="slide swiper-slide">
+                <img src="hero images/img2.png" alt="" class="image" />
+                <div class="image-data">
+                  <span class="text">Making Our coffee with lover.</span>
+                  <h2>
+                    Alluring and Fragrant <br />
+                    Coffee Aroma
+                  </h2>
+                  <a href="#" class="button">About Us</a>
+                </div>-->
+              </div>
+            </div>
+      
+            <div class="swiper-button-next nav-btn"></div>
+            <div class="swiper-button-prev nav-btn"></div>
+            <div class="swiper-pagination"></div>
+          </section>
+      
+          <!-- Swiper JS -->
+          <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      
+          <!-- Initialize Swiper -->
+          <script>
+            var swiper = new Swiper(".mySwiper", {
+              slidesPerView: 1,
+              loop: true,
+              pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+              },
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+            });
+          </script>
+
+      <!--History Of NGO --><br>
+      <div class="ngo-history">
+        <div class="org-description">WE ARE A NON-PROFIT ORGANISATION.</div><br>
+
+        <hr style="height:1px;width:250px;margin:auto;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)" /><br>
+
+        <div class="org-name">Janhit Gramin Vikas va Samajik Sanshodhan Sanstha.</div>
+        <br><br>
+        <div class="his-panel2">
+        <p>Janhit Gramin Vikas va Samajik
+          Sanshodhan Sanstha was started in 2009, And officially registered under the Societies Registration Act, 
+          1860 and Mumbai Public Trust Act, 1950 in the year 2011. Working on various issues from communities, 
+          Also focused on Rural development, Womens empowerment, Dalits uplifment, Youths development, 
+          Eradication of Child labour, Education, and the other social problems. 
+           <br> <br>Our organisation is engaged in empower
+           to Womens and Youths by giving a Skill, Vocational and Digital training. We are arranging camps and lectures 
+           on various subjects of Youth, Womens, and Senior citizens.
+          Logo We often called "JANHIT" to our organisation. Janhit has its specific Objectives, 
+          Vision and Mission to doing a work.<br><br>
+           </p>
+       </div>
+
+       <div class="con">
+        <div class="box our-mission">
+          <h2>Our Mission</h2>
+          <hr style="height:0.1rem;width:140px;margin:auto;color:greenyellow;background-color:greenyellow" /><br>
+          <p>Organization Mission is to developing a disadvantaged Womens,Children,Youth,Health and Family Welfare and Tribals of the Rural and Urban areas awarnesson various issues of the society. </p>
+        </div>
+        <div class="box our-vision">
+          <h2>Our Vision</h2>
+          <hr style="height:0.1rem;width:140px;margin:auto;color:greenyellow;background-color:greenyellow" /><br>
+          <p>To bring a disadvantaged cummunity in developing stream</p>
+          <p>To give skills & Vocational training</p>
+          <p>To take a various camps & lecture series</p>
+          <p>To take a self-education Workshop</p>
+          <p>As per the MOA</p>
+        </div>
+      </div>
+
+      <!-- Our Programs Section -->
+     
+
+      <div class="container">
+        <div class="header">
+         <div class="key-issues">
+          KEY ISSUES
+         </div>
+         <hr style="width:100px; margin: auto;" />
+         <h1>
+          JANHIT GRAMIN VIKAS VA SAMAJIK SANSHODHAN SANSTHA
+         </h1>
+        </div>
+        <div class="content">
+         <div class="sidebar">
+          <ul>
+           <li class="active" onclick="showContent('education')">
+            Education and Literacy
+           </li>
+           <li onclick="showContent('agriculture')">
+            Agriculture
+           </li>
+           <li onclick="showContent('dalit')">
+            Dalit Upliftment
+           </li>
+           <li onclick="showContent('health')">
+            Health and Family Welfare
+           </li>
+           <li onclick="showContent('rural')">
+            Rural Development and Poverty Alleviation
+           </li>
+          </ul>
+         </div>
+         <div class="main-content" id="main-content">
+          <h2>
+           Education and Literacy
+          </h2>
+          <p>
+           Our organization is working on for women and backward class by providing vocational training to hundreds of individuals in rural areas. In rural area agriculture and dairy farming are the main occupation. We are encouraging the farmers by training them about organic farming and conducting soil test. We also conduct camps and seminars for senior citizen. We surveyed villages and found that tribal communities problems and started working for them. We believe in literacy and have started library.
+          </p>
+          <img alt="Image related to Education and Literacy"  src="{{ url_for('static', filename='styel/education.jpg') }}"/>
+          
+         </div>
+        </div>
+       </div><br><br>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+       <!-- Footer Section -->
+
+       <footer>
+        <div class="foot-panel1 " id="back-to-top">
+            Back to Top
+        </div>
+        <script>
+          document.getElementById('back-to-top').addEventListener('click', function() {
+    window.scrollTo(0, 0);
+  });
+        </script>
+
+       <div class="foot-panel2">
+   <div class="left-section">
+    <img alt="Organization Logo"  src="{{ url_for('static', filename='styel/cropped-janhit2-10.png') }}" height="150" width="300"/>
+    <br>
+    <div class="contact-info">
+     <p>
+      <i class="fas fa-home">
+      </i>
+      A/p: Puntamba Tal: Rahata Dist: Ahmednagar PIN-413707
+     </p><br>
+     <p>
+      <i class="fas fa-phone">
+      </i>
+      +919767280213
+     </p><br>
+     <p>
+      <i class="fas fa-clock">
+      </i>
+      Working Hours: Mon-Fri (9 am - 8 pm)
+     </p>
+    </div>
+   </div>
+   <div class="right-section">
+    <h2>
+     ABOUT
+    </h2>
+    <p>
+     Our organization is working on for women and backward class by providing vocational training to hundreds of individuals in rural areas. In rural area agriculture and dairy farming are the main occupation. We are encouraging the farmers by training them about organic farming and conducting soil test. We also conduct camps and seminars for senior citizen. We surveyed villages and found that tribal communities problems and started working for them. We believe in literacy and have started library.
+    </p>
+    <div class="social-icons">
+     <i class="fab fa-facebook-f" a href="">
+     </i>
+     <i class="fab fa-twitter">
+     </i>
+     <i class="fab fa-linkedin-in">
+     </i>
+     <i class="fab fa-instagram">
+     </i>
+     <i class="fas fa-rss">
+     </i>
+    </div>
+   </div>
+  </div>
+
+        <div class="foot-panel3">
+            <div class="logo"></div>
+        </div>
+
+        <div class="foot-panel4">
+            <div class="pages">
+                NGO
+            </div>
+
+            <div class="copyrigth">
+              2022 © All Rights Reserved by jgvsss
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
